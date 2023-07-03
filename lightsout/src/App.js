@@ -1,6 +1,6 @@
-import React from "react"
-import Board from "./Board"
-import "./App.css"
+import React from "react";
+import Board from "./Board";
+import "./App.css";
 
 
 

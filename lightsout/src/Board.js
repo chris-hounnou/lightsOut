@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Cell from "./Cell";
-import "./Board.css"
+import "./Board.css";
 
 
 
@@ -26,6 +26,7 @@ function Board({ nrows = 5, ncols = 5, chanceLightStartsOn = 0.25, }) {
     function flipCellsAround(coord) {
         setBoard(oldBoard => {
             const [y, x] = coord.split("-").map(Number);
+
             const flipCell = (y, x, boardCopy) => {
                 if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
                     boardCopy[y][x] = !boardCopy[y][x];
@@ -37,8 +38,8 @@ function Board({ nrows = 5, ncols = 5, chanceLightStartsOn = 0.25, }) {
             flipCell(y, x, boardCopy);
             flipCell(y, x - 1, boardCopy);
             flipCell(y, x + 1, boardCopy);
-            flipCell(y, x, boardCopy);
-            flipCell(y, x, boardCopy);
+            flipCell(y - 1, x, boardCopy);
+            flipCell(y + 1, x, boardCopy);
 
 
             return boardCopy;
